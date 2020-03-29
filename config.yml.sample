@@ -1,0 +1,10 @@
+apiToken: ""
+serviceName: codex
+threshold: 5000
+schedule:
+  enabled: False
+  cron: "* * * * *"
+notify:
+  codex:
+    url: ""
+    enabled: True

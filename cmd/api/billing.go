@@ -29,5 +29,5 @@ func (api *VscaleAPI) GetBalance() float32 {
 		fmt.Printf("Exception: %s", err)
 	}
 
-	return float32(billingResult.Balance) / 100.0
+	return float32(billingResult.Summ) / 100.0
 }

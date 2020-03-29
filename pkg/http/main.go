@@ -3,6 +3,7 @@ package http
 import (
 	"bytes"
 	"io/ioutil"
+	"log"
 	"net/http"
 )
 
@@ -23,7 +24,12 @@ func PostRequest(method string, url string, body []byte, headers map[string]stri
 		return []byte(""), err
 	}
 
-	defer res.Body.Close()
+	defer func() {
+		err := res.Body.Close()
+		if err != nil {
+			log.Printf("Error: %s", err)
+		}
+	}()
 
 	data, err := ioutil.ReadAll(res.Body)
 	if err != nil {
